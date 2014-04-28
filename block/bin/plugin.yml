@@ -1,0 +1,12 @@
+name: Blocks
+
+author: Me!!!
+
+main: Blocks.Blocks
+
+commands: 
+  block:
+    description: will create a block 
+    usage: /block 
+  
+version: 0.0.1
