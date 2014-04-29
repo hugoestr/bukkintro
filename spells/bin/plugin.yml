@@ -11,5 +11,8 @@ commands:
   avadakedavra:
     description: kills the user
     usage: /avadakedavra [optional user] 
+  expectopatronum:
+    description: brings the patronum of the player
+    usage: /expectopatronum 
 
 version: 0.0.1
