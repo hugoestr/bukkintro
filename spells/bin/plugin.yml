@@ -14,5 +14,13 @@ commands:
   expectopatronum:
     description: brings the patronum of the player
     usage: /expectopatronum 
-
+  rise:
+    description: it spawns a zombie 
+    usage: /rise 
+  begone:
+    description: it kills all zombies 
+    usage: /begone 
+  norain:
+    description: stops a storm 
+    usage: /begone 
 version: 0.0.1

@@ -1,6 +1,7 @@
 package Spells;
 
 import java.util.logging.Logger;
+import java.util.ArrayList;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -9,6 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.entity.Player;
 import org.bukkit.Location;
 import org.bukkit.entity.Chicken;
+import org.bukkit.entity.Zombie;
 
 public class Spells extends JavaPlugin {
   public static Logger log = Logger.getLogger("Minecraft");
@@ -39,6 +41,20 @@ public class Spells extends JavaPlugin {
       return true;
     }
 
+    if (commandLabel.equalsIgnoreCase("rise")) {
+      rise((Player)sender, args);
+      return true;
+    }
+
+    if (commandLabel.equalsIgnoreCase("begone")) {
+      begone((Player)sender, args);
+      return true;
+    }
+    
+    if (commandLabel.equalsIgnoreCase("norain")) {
+      norain((Player)sender);
+      return true;
+    }
     if (commandLabel.equalsIgnoreCase("avadakedavra")){
       kill(sender, args);
       return true;
@@ -47,14 +63,30 @@ public class Spells extends JavaPlugin {
     return false;
   }
 
+  private void norain(Player player){
+    player.getWorld().setStorm(false);
+  }
+
+  private void begone(Player player, String[] args){
+    ArrayList<Zombie> zombies = (ArrayList<Zombie>)player.getWorld().getEntitiesByClass(Zombie.class);
+    for (Zombie z : zombies){
+      z.setFireTicks(1000);
+    }
+  }
+
+  private void rise(Player player, String[] args){
+      Location location = player.getLocation();
+
+      location.setX(location.getX() + 5);
+      player.getWorld().spawn(location, Zombie.class);
+  }
+
   private void expectopatronum(CommandSender sender, String[] args){
-      getServer().broadcastMessage("in function");  
       Player player = (Player)sender;
       Location location = player.getLocation();
 
       location.setX(location.getX() + 5);
       player.getWorld().spawn(location, Chicken.class);
-      getServer().broadcastMessage("end function");  
   } 
 
   private void  restoreHealth(CommandSender sender, String[] args){

@@ -10,6 +10,7 @@ echo "+++ moving .class file to bin/PACKAGE ..."
 mv $1/$1.class $1/bin/$1
 
 echo "+++ copying plugin yml file to bin ..."
+rm $1/bin/plugin.yml
 cp $1/plugin.yml $1/bin
 
 echo "+++ creating jar file..."
