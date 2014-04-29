@@ -1,0 +1,12 @@
+name: CHANGE_ME
+
+author: Me!!!
+
+main: CHANGE_ME.CHANGE_ME
+
+commands: 
+  hello:
+    description: [description] 
+    usage: /[description here]
+
+version: 0.0.1
